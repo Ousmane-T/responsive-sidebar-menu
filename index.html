@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sidebar Navigation</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+  <aside>
+
+    <div class="head">
+      <div class="logo">
+        <img src="images/logo.png" alt="logo">
+      </div>
+      <i class='bx bx-menu hamburger-menu'></i>
+    </div>
+
+    <div class="nav">
+
+      <div class="menu">
+        <i class="bx bx-pie-chart-alt">
+          <span>Dashboard</span>
+        </i>
+      </div>
+
+      <div class="menu">
+        <i class="bx bx-edit">
+          <span>Posts</span>
+        </i>
+      </div>
+
+      <div class="menu">
+        <i class="bx bx-task">
+          <span>Tasks</span>
+          <i class="bx bx-chevron-down"></i>
+        </i>
+      </div>
+      <div class="menu-dropdown">
+        <div class="sub-menu">
+          <span class="menu">Assignment</span>
+          <span class="menu">Completed</span>
+        </div>
+      </div>
+
+      <div class="menu">
+        <i class="bx bx-bell">
+          <span>Notifications</span>
+        </i>
+      </div>
+
+      <div class="menu">
+        <i class="bx bx-group">
+          <span>Teams</span>
+          <i class="bx bx-chevron-down"></i>
+        </i>
+      </div>
+      <div class="menu-dropdown">
+        <div class="sub-menu">
+          <span class="menu">Programmer</span>
+          <span class="menu">Trader</span>
+          <span class="menu">Youtuber</span>
+        </div>
+      </div>
+
+      <div class="menu">
+        <i class="bx bx-cog">
+          <span>Settings</span>
+        </i>
+      </div>
+
+      <div class="menu"></div>
+
+    </div>
+
+    <div class="foot">
+      <div class="profile">
+        <img src="images/profile.png" alt="profile">
+        <div class="info">
+          <span class="name">Martin Luther King Jr.</span>
+          <span class="job">Activist</span>
+        </div>
+      </div>
+
+      <div class="menu menu-logout">
+        <i class="bx bx-log-out">
+          <span>Logout</span>
+        </i>
+      </div>
+
+
+    </div>
+
+
+  </aside>
+
+  <header>
+    <h1>SIDEBAR</h1>
+  </header>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $('.hamburger-menu').click(function(){
+      $('aside').toggleClass('close');
+    });
+    
+    $('.menu').click(function(){
+      $(this).siblings('.menu').removeClass('active');
+      $(this).addClass('active')
+      $(this).next('.menu-dropdown').children('.sub-menu').slideToggle()
+      $(this).next('.menu').siblings('.menu-dropdown').children('.sub-menu').slideUp()
+      $(this).next('.menu-dropdown').siblings('.menu-dropdown').children('.sub-menu').slideUp()
+      $(this).next().siblings('.menu-dropdown').children('.sub-menu').children('.menu').removeClass('active')
+    });
+  </script>
+</body>
+</html>
